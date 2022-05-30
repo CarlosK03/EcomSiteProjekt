@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'test2/style.css' %}">
+    <title>Karat Klädsel</title>
+</head>
+<body>
+    <body>
+  
+        <div class="navbar">
+          <a href="cart"style="padding-right: 3%;">Shopping Cart</a>
+          <a href="login">Login</a>
+          <a href="signup">Register</a>
+          <a href="#landing"><img id="logga" src="{%static 'test2/shopeasy.png'%}" alt="Logga"></a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="personal">
+
+          <a id="personal"></a>
+  
+          <h2 id="title">Vår Personal</h2>
+  
+        <section class="container">
+  
+          <article id="profile" class="zoom">
+            <img src="https://cdn.discordapp.com/attachments/357480141049298944/846693561516556288/flat1000x1000075f.png" alt="En gubbe som ger tumme upp">
+            <p>lorem ipsum</p>
+          </article>
+          
+          <article id="profile" class="zoom">
+            <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/166811477/original/21c66655d27a86a869b40b6d3ee6f452458ab5be/do-happy-birthday-video-2f33.jpg" alt="En stolt man som är fundersam">
+            <p>lorem ipsum</p>
+          </article>
+  
+          <article id="profile" class="zoom">
+            <img src="https://www.criminaljusticedegreeschools.com/app/uploads/2020/07/GettyImages-1198436011-585x390.jpg" alt="En kvinna som ler">
+            <p>lorem ipsum</p>
+          </article>
+  
+          <article id="profile" class="zoom">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/WE_Bok_CHM_VA0908.jpg" alt="En gammaldags bild på en advokat">
+            <p>lorem ipsum</p>
+          </article>
+          
+      
+          
+            {% for person in people %}
+            <article id="profile" class="zoom">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/WE_Bok_CHM_VA0908.jpg" alt="En gammaldags bild på en advokat">
+              <b>Namn: {{person.name}}</b>
+              <p>Pris: {{person.price}}</p>
+              <p>Land: {{person.nationality}}</p>
+      
+            </article>
+  
+            {% endfor%}
+          {%else%}
+            <p>Logga in för att se hemsidan</p>
+          {%endif%}
+        </section>
+      </div>
+</body>
+</html>
